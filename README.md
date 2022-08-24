@@ -84,5 +84,5 @@ sys.exit(app.exec())
 
 **Урок 6**
 Документация по календарю (см методы)
-https://doc.qt.io/qtforpython-5/PySide2/QtWidgets/QCalendarWidget.html
+https://doc.qt.io/qtforpython-5/PySide2/QtCore/QDate.html#PySide2.QtCore.PySide2.QtCore.QDate
 Работа с датой и календарем
