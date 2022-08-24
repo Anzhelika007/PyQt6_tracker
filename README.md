@@ -25,3 +25,22 @@ int ret = QMessageBox::warning(this, tr("My Application"),
                                QMessageBox::Save);
 
 Есть баг - кнопки Save/Discard/Cancel - относятся к StandardButton - смотри файл кода урока
+
+Урок 3
+1. Создадим трекер в Qt Designer
+2. Из документации копируем код запуска (загрузка без конвертации)
+
+from PyQt5 import uic
+from PyQt5.QtWidgets import QApplication
+
+# указали файл ui без конвертации
+Form, Window = uic.loadUiType("tracker.ui")
+
+app = QApplication([])
+window = Window()
+form = Form()
+form.setupUi(window)
+window.show()
+app.exec_()
+
+
