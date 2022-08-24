@@ -45,6 +45,7 @@ app.exec_()
 
 
 Урок 4
+
 Coздали файл обмена bat 
 create_py_file_from_ui.bat который содержит одну команду обмена
 pyuic6.exe -x D:\Python\Project\PyQt6_tracker\tracker.ui  -o D:\Python\Project\PyQt6_tracker\tracker.py
