@@ -54,3 +54,27 @@ pyuic6.exe -x D:\Python\Project\PyQt6_tracker\tracker.ui  -o D:\Python\Project\P
 На практике посмотрели в чем разница между двумя подходами:
 -как обновляются (для варианта, когда мы получаем объект как клас - обновление через bat фаил)
 
+
+Урок 5
+Cпособы обращения к элементам(фаил main - без конвертации, фаил tracker - с конвертацией и открытым классом):
+1. Фаил main (через form.)
+form.label.setText('erthtzrjnsymzgs') > посмотреть нужный элемент можно в файле tracker
+2. Фаил tracker НЕ РЕКОМЕНДУЕТСЯ
+просто наращивать функциями вниз 
+3. В фаил main импортировать фаил tracker как модуль (через ui.):
+
+from tracker import *
+
+import sys
+
+app = QtWidgets.QApplication(sys.argv)
+MainWindow = QtWidgets.QMainWindow()
+ui = Ui_MainWindow()
+ui.setupUi(MainWindow)
+MainWindow.show()
+
+ui.label.setText('erthtzrjnsymzgs')
+
+sys.exit(app.exec())
+
+В данном уроке мы считали дату, текстовое поле, вывели начатие на кнопку
