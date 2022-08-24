@@ -33,7 +33,7 @@ int ret = QMessageBox::warning(this, tr("My Application"),
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication
 
-# указали файл ui без конвертации
+- указали файл ui без конвертации
 Form, Window = uic.loadUiType("tracker.ui")
 
 app = QApplication([])
@@ -43,4 +43,11 @@ form.setupUi(window)
 window.show()
 app.exec_()
 
+
+#Coздали файл обмена bat 
+create_py_file_from_ui.bat который содержит одну команду обмена
+pyuic6.exe -x D:\Python\Project\PyQt6_tracker\tracker.ui  -o D:\Python\Project\PyQt6_tracker\tracker.py
+
+На практике посмотрели в чем разница между двумя подходами:
+-как обновляются (для варианта, когда мы получаем объект как клас - обновление через bat фаил)
 
