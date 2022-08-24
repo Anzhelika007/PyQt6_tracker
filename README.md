@@ -1,5 +1,5 @@
 # PyQt6_tracker
-Урок 1
+**Урок 1**
 1. Устанавливаем PyQt6 терминал
 pip install PyQt6
 2. Cоздали файл в Qt Designer
@@ -13,7 +13,8 @@ ui = Ui_Dialog()
 Или при создании в Qt Designer 
 
 
-Урок 2
+**Урок 2**
+
 1. Создадим QMessageBox (paзновидности встроенных:information(), question(), warning(), and critical())
 https://doc.qt.io/qt-6/qmessagebox.html
 
@@ -26,7 +27,8 @@ int ret = QMessageBox::warning(this, tr("My Application"),
 
 Есть баг - кнопки Save/Discard/Cancel - относятся к StandardButton - смотри файл кода урока
 
-Урок 3
+**Урок 3**
+
 1. Создадим трекер в Qt Designer
 2. Из документации копируем код запуска (загрузка без конвертации)
 
@@ -44,7 +46,7 @@ window.show()
 app.exec_()
 
 
-Урок 4
+**Урок 4**
 
 Coздали файл обмена bat 
 create_py_file_from_ui.bat который содержит одну команду обмена
@@ -55,7 +57,8 @@ pyuic6.exe -x D:\Python\Project\PyQt6_tracker\tracker.ui  -o D:\Python\Project\P
 -как обновляются (для варианта, когда мы получаем объект как клас - обновление через bat фаил)
 
 
-Урок 5
+**Урок 5**
+
 Cпособы обращения к элементам(фаил main - без конвертации, фаил tracker - с конвертацией и открытым классом):
 1. Фаил main (через form.)
 form.label.setText('erthtzrjnsymzgs') > посмотреть нужный элемент можно в файле tracker
@@ -78,3 +81,8 @@ ui.label.setText('erthtzrjnsymzgs')
 sys.exit(app.exec())
 
 В данном уроке мы считали дату, текстовое поле, вывели начатие на кнопку
+
+**Урок 6**
+Документация по календарю (см методы)
+https://doc.qt.io/qtforpython-5/PySide2/QtWidgets/QCalendarWidget.html
+Работа с датой и календарем
