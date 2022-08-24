@@ -48,6 +48,7 @@ app.exec_()
 create_py_file_from_ui.bat который содержит одну команду обмена
 pyuic6.exe -x D:\Python\Project\PyQt6_tracker\tracker.ui  -o D:\Python\Project\PyQt6_tracker\tracker.py
 
+
 На практике посмотрели в чем разница между двумя подходами:
 -как обновляются (для варианта, когда мы получаем объект как клас - обновление через bat фаил)
 
