@@ -103,3 +103,24 @@ form.dateEdit.dateChanged.connect(on_dateedit_changer)
 1. Импортируем модуль для сохранения и импорта данных в файл/из файла
 import pickle
 2. Создадим 2 функции(одна записывает в файл / другая считывает из файла)
+
+**Урок 9**
+
+При нажатии на кнопку Следить - создать задачу в планировщике задач на Windows(интегрируем)
+
+Посмотреть команды  Windoys:
+Win+R > cmd > schtasks > schtasks /? (помощь по задаче) > schtasks /Create /?
+cd/d D:\Python\Project\PyQt6_tracker\ > python main.py (запустили приложение из консоли)
+
+Создали в стандартном планировщике задач Win задачу - взяли файл xml
+
+**Урок 10**
+
+Через командную строку создаем событие
+schtasks /create /tr "python D:\Python\Project\PyQt6_tracker\main.py" /tn "Трекер события " /SC MINUTE /MO 5 /ed 26/08/2022
+УСПЕХ. Запланированная задача "Трекер события " была успешно создана.
+
+изменили принудительно
+C:\Users\Lika>schtasks /create /tr "python D:\Python\Project\PyQt6_tracker\main.py" /tn "Трекер события " /SC MINUTE /MO 120 /ed 26/08/2022 /F
+УСПЕХ. Запланированная задача "Трекер события " была успешно создана.
+
