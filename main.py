@@ -1,23 +1,15 @@
-# from tracker import *
-#
-# import sys
-#
-# app = QtWidgets.QApplication(sys.argv)
-# MainWindow = QtWidgets.QMainWindow()
-# ui = Ui_MainWindow()
-# ui.setupUi(MainWindow)
-# MainWindow.show()
-#
-# ui.label.setText('erthtzrjnsymzgs')
-#
-# sys.exit(app.exec())
-
 import pickle
 from PyQt5 import uic
 from PyQt5.QtCore import QDate
 from PyQt5.QtWidgets import QApplication
+import os
 
-Form, Window = uic.loadUiType('tracker.ui')
+# путь программы
+print(os.path.realpath(__file__))
+# разбили путь по переменным
+dirmame, filename = os.path.split(os.path.realpath(__file__))
+print(dirmame)
+Form, Window = uic.loadUiType(dirmame+ '\\tracker.ui')
 
 app = QApplication([])
 window = Window()
@@ -64,23 +56,15 @@ def read_from_file():
 
 def on_click():
     global calc_date, description
-    # записываем переменные по клику следить    calc_date = form.calendarWidget.selectedDate()
+    # записываем переменные по клику следить
+    calc_date = form.calendarWidget.selectedDate()
     description = form.plainTextEdit.toPlainText()
-
-    # print(form.plainTextEdit.toPlainText())
-    # print(form.dateEdit.dateTime().toString('dd-MM-yyyy'))
-    # print('Cliked!!!')
     save_to_file()
-    # print(form.calendarWidget.selectedDate().toString('dd-MM-yyyy'))
-    # date = QDate(2022, 9, 17)
-    # form.calendarWidget.setSelectedDate(date)
 
 
 def on_click_calendar():
     global start_date, calc_date
-
     # меняем дату в dateEdit на дату выбранную в календаре
-    # print(form.calendarWidget.selectedDate().toString('dd-MM-yyyy'))
     form.dateEdit.setDate(form.calendarWidget.selectedDate())
 
     # расчет количества оставшихся дней до события метод daysTo
@@ -94,13 +78,11 @@ def on_click_calendar():
 def on_dateedit_changer():
     global start_date, calc_date
     # меняем дату в календаре на дату в dateEdit
-    # print(form.dateEdit.dateTime().toString('dd-MM-yyyy'))
     form.calendarWidget.setSelectedDate(form.dateEdit.date())
 
     # расчет количества оставшихся дней до события метод daysTo / изменили значение calc_date
     calc_date = form.dateEdit.date()
     delta_days = start_date.daysTo(calc_date)
-    print(delta_days)
     # меняем значение поля
     form.label_3.setText("До наступления события осталось: %s дней" % delta_days)
 
