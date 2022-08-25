@@ -113,3 +113,15 @@ Win+R > cmd > schtasks > schtasks /? (помощь по задаче) > schtasks
 cd/d D:\Python\Project\PyQt6_tracker\ > python main.py (запустили приложение из консоли)
 
 Создали в стандартном планировщике задач Win задачу - взяли файл xml
+
+**Урок 10**
+
+Через командную строку создаем событие
+schtasks /create /tr "python D:\Python\Project\PyQt6_tracker\main.py" /tn "Трекер события " /SC MINUTE /MO 5 /ed 26/08/2022
+УСПЕХ. Запланированная задача "Трекер события " была успешно создана.
+
+изменили принудительно
+C:\Users\Lika>schtasks /create /tr "python D:\Python\Project\PyQt6_tracker\main.py" /tn "Трекер события " /SC MINUTE /MO 120 /ed 26/08/2022 /F
+УСПЕХ. Запланированная задача "Трекер события " была успешно создана.
+
+

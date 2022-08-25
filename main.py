@@ -5,10 +5,9 @@ from PyQt5.QtWidgets import QApplication
 import os
 
 # путь программы
-print(os.path.realpath(__file__))
+#print(os.path.realpath(__file__))
 # разбили путь по переменным
 dirmame, filename = os.path.split(os.path.realpath(__file__))
-print(dirmame)
 Form, Window = uic.loadUiType(dirmame+ '\\tracker.ui')
 
 app = QApplication([])
@@ -20,25 +19,32 @@ window.show()
 
 def save_to_file():
     # сохраняем в файл
-    global start_date, calc_date, description
+    global start_date, calc_date, description, dirmame
     data_to_save = {'start': start_date, 'end': calc_date, 'desc': description}
-    file1 = open('config.txt', 'wb')
+    file1 = open(dirmame+'\\config.txt', 'wb')
     pickle.dump(data_to_save, file1)
     file1.close()
+
+    task = """schtasks /create /tr "python """ + os.path.realpath(
+        __file__) + """" /tn "Трекер события" /sc MINUTE /mo 120 /ed 31/12/2020 /F"""
+    task = """schtasks /create /tr "python """ + os.path.realpath(
+        __file__) + """" /tn "Трекер события" /sc MINUTE /mo 120 /ed """ + calc_date.toString("dd/MM/yyyy") + """ /F"""
+    print(task)
+    os.system('chcp 65001')
+    os.system(task)
 
 
 def read_from_file():
     # считываем из файла
-    global start_date, calc_date, description, now_date
+    global start_date, calc_date, description, now_date,dirmame
     # обработка исключений если файла не будет выведет сообщение
     try:
-        file1 = open('config.txt', 'rb')
+        file1 = open(dirmame+'\\config.txt', 'rb')
         date_to_load = pickle.load(file1)
         file1.close()
         start_date = date_to_load['start']
         calc_date = date_to_load['end']
         description = date_to_load['desc']
-        print(start_date.toString('dd-MM-yyyy'), calc_date.toString('dd-MM-yyyy'), description)
         # отобразим дату события
         form.calendarWidget.setSelectedDate(calc_date)
         form.dateEdit.setDate(calc_date)
@@ -47,9 +53,7 @@ def read_from_file():
         delta_days_left = now_date.daysTo(start_date)    # прошло дней
         delta_days_right = now_date.daysTo(calc_date)    # осталось дней
         days_total = start_date.daysTo(calc_date)        # всего дней
-        print(delta_days_left,delta_days_right,days_total)
         procent = int(delta_days_left * 100 / days_total)
-        print(procent)
         form.progressBar.setProperty("value", procent)
     except:
         print("Не могу прочитать файл... Может его нет")
@@ -70,7 +74,6 @@ def on_click_calendar():
     # расчет количества оставшихся дней до события метод daysTo
     calc_date = form.calendarWidget.selectedDate()
     delta_days = start_date.daysTo(calc_date)
-    print(delta_days)
     # меняем значение поля
     form.label_3.setText("До наступления события осталось: %s дней" % delta_days)
 
