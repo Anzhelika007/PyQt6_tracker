@@ -124,3 +124,4 @@ schtasks /create /tr "python D:\Python\Project\PyQt6_tracker\main.py" /tn "Тр�
 C:\Users\Lika>schtasks /create /tr "python D:\Python\Project\PyQt6_tracker\main.py" /tn "Трекер события " /SC MINUTE /MO 120 /ed 26/08/2022 /F
 УСПЕХ. Запланированная задача "Трекер события " была успешно создана.
 
+
