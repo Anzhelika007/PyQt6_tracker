@@ -80,9 +80,18 @@ ui.label.setText('erthtzrjnsymzgs')
 
 sys.exit(app.exec())
 
-В данном уроке мы считали дату, текстовое поле, вывели начатие на кнопку
+В данном уроке мы считали дату, текстовое поле, вывели нажатие на кнопку
 
 **Урок 6**
 Документация по календарю (см методы)
 https://doc.qt.io/qtforpython-5/PySide2/QtCore/QDate.html#PySide2.QtCore.PySide2.QtCore.QDate
 Работа с датой и календарем
+вызов функций при наступлении событий:
+
+form.pushButton.clicked.connect(on_click)
+form.calendarWidget.clicked.connect(on_click_calendar)
+form.dateEdit.dateChanged.connect(on_dateedit_changer)
+
+**Урок 7**
+Меняем стартовую дату в dateEdit при помощи функции перед зыпуском приложения
+Добавили функционал подсчета различных дат методом daysTo()
