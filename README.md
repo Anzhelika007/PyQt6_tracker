@@ -83,6 +83,7 @@ sys.exit(app.exec())
 В данном уроке мы считали дату, текстовое поле, вывели нажатие на кнопку
 
 **Урок 6**
+
 Документация по календарю (см методы)
 https://doc.qt.io/qtforpython-5/PySide2/QtCore/QDate.html#PySide2.QtCore.PySide2.QtCore.QDate
 Работа с датой и календарем
@@ -93,5 +94,12 @@ form.calendarWidget.clicked.connect(on_click_calendar)
 form.dateEdit.dateChanged.connect(on_dateedit_changer)
 
 **Урок 7**
+
 Меняем стартовую дату в dateEdit при помощи функции перед зыпуском приложения
 Добавили функционал подсчета различных дат методом daysTo()
+
+**Урок 8**
+
+1. Импортируем модуль для сохранения и импорта данных в файл/из файла
+import pickle
+2. Создадим 2 функции(одна записывает в файл / другая считывает из файла)
